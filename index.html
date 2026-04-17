@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rijan Nepal — MBBS Student | IOM Maharajgunj</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --cream: #F8F4EE;
+    --ivory: #EDE8DF;
+    --dark: #1A1714;
+    --charcoal: #2E2B27;
+    --muted: #7A7268;
+    --accent: #8B3A2A;
+    --accent-light: #C4614A;
+    --gold: #C9962A;
+    --gold-light: #E8C060;
+    --border: rgba(26,23,20,0.12);
+    --white: #FDFBF8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(248,244,238,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--dark);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10rem 4rem 6rem 5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-tag {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+    font-style: italic;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--charcoal);
+    max-width: 420px;
+    line-height: 1.75;
+    margin-bottom: 3rem;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.85rem 2.2rem;
+    background: var(--accent);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.25s;
+    border: 1.5px solid var(--accent);
+  }
+
+  .btn-primary:hover {
+    background: var(--dark);
+    border-color: var(--dark);
+  }
+
+  .btn-ghost {
+    display: inline-block;
+    padding: 0.85rem 2.2rem;
+    background: transparent;
+    color: var(--dark);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1.5px solid var(--dark);
+    transition: all 0.25s;
+  }
+
+  .btn-ghost:hover {
+    background: var(--dark);
+    color: var(--white);
+  }
+
+  .hero-right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ivory);
+    overflow: hidden;
+  }
+
+  .hero-right::before {
+    content: '';
+    position: absolute;
+    top: -10%; right: -10%;
+    width: 70%; height: 70%;
+    border-radius: 50%;
+    background: rgba(139,58,42,0.06);
+  }
+
+  .hero-right::after {
+    content: '';
+    position: absolute;
+    bottom: 5%; left: 5%;
+    width: 40%; height: 40%;
+    border-radius: 50%;
+    background: rgba(201,150,42,0.07);
+  }
+
+  .photo-frame {
+    position: relative;
+    z-index: 2;
+    width: 380px;
+    height: 480px;
+  }
+
+  .photo-border {
+    position: absolute;
+    top: -20px; left: -20px;
+    width: 100%; height: 100%;
+    border: 2px solid var(--accent);
+    opacity: 0.35;
+    z-index: 0;
+  }
+
+  .photo-img {
+    width: 380px;
+    height: 480px;
+    object-fit: cover;
+    object-position: center top;
+    position: relative;
+    z-index: 1;
+    display: block;
+    background: linear-gradient(160deg, #C4B5A5 0%, #8A7A6A 100%);
+  }
+
+  .photo-placeholder {
+    width: 380px;
+    height: 480px;
+    background: linear-gradient(160deg, #C4B5A5 0%, #8A7A6A 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .photo-placeholder svg {
+    width: 120px;
+    height: 120px;
+    opacity: 0.5;
+    margin-bottom: 1rem;
+  }
+
+  .photo-placeholder span {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .hero-badge {
+    position: absolute;
+    bottom: 3rem;
+    right: -1.5rem;
+    background: var(--white);
+    border: 0.5px solid var(--border);
+    padding: 1rem 1.4rem;
+    z-index: 3;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    min-width: 180px;
+  }
+
+  .hero-badge .badge-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    line-height: 1;
+  }
+
+  .hero-badge .badge-label {
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0.3rem;
+    display: block;
+  }
+
+  /* ── SCROLL INDICATOR ── */
+  .scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .scroll-line {
+    width: 2.5rem;
+    height: 1px;
+    background: var(--muted);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scroll-line::after {
+    content: '';
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--accent);
+    animation: slide 2s ease-in-out infinite;
+  }
+
+  @keyframes slide {
+    0% { left: -100%; }
+    50% { left: 0; }
+    100% { left: 100%; }
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 7rem 5rem; }
+
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  /* ── ABOUT ── */
+  .about {
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+
+  .stat-box {
+    background: var(--white);
+    padding: 1.8rem;
+  }
+
+  .stat-box .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+  }
+
+  .stat-box .stat-label {
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.3rem;
+  }
+
+  .about-text p {
+    color: var(--charcoal);
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+  }
+
+  .about-text p:last-child { margin-bottom: 0; }
+
+  /* ── EDUCATION ── */
+  .education {
+    background: var(--cream);
+    position: relative;
+  }
+
+  .edu-grid {
+    margin-top: 3.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .edu-card {
+    background: var(--white);
+    border: 0.5px solid var(--border);
+    padding: 2.4rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .edu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  }
+
+  .edu-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--accent);
+  }
+
+  .edu-card.current::before {
+    background: var(--gold);
+  }
+
+  .edu-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+
+  .edu-level {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--accent);
+    display: inline-block;
+    padding: 0.2rem 0.7rem;
+    margin-bottom: 1rem;
+  }
+
+  .edu-card.current .edu-level {
+    background: var(--gold);
+  }
+
+  .edu-institution {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
+
+  .edu-program {
+    font-size: 0.88rem;
+    color: var(--charcoal);
+    margin-bottom: 1.5rem;
+  }
+
+  .edu-gpa {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+  }
+
+  .gpa-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .edu-card.current .gpa-num { color: var(--gold); }
+
+  .gpa-label {
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .edu-current-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,150,42,0.2);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(201,150,42,0.2); }
+    50% { box-shadow: 0 0 0 6px rgba(201,150,42,0.1); }
+  }
+
+  /* ── INTERESTS / SKILLS ── */
+  .interests {
+    background: var(--dark);
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .interests::before {
+    content: '';
+    position: absolute;
+    top: -20%; right: -10%;
+    width: 50%; height: 80%;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .interests .section-label { color: var(--gold-light); }
+  .interests .section-label::before { background: var(--gold-light); }
+  .interests .section-title { color: var(--cream); }
+
+  .interests-grid {
+    margin-top: 3.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .interest-item {
+    background: var(--dark);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: background 0.25s;
+  }
+
+  .interest-item:hover {
+    background: rgba(255,255,255,0.04);
+  }
+
+  .interest-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .interest-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+
+  .interest-desc {
+    font-size: 0.82rem;
+    color: rgba(248,244,238,0.45);
+    line-height: 1.6;
+  }
+
+  /* ── GOALS ── */
+  .goals {
+    background: var(--ivory);
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .goals-list {
+    margin-top: 1rem;
+    list-style: none;
+    counter-reset: goals;
+  }
+
+  .goals-list li {
+    counter-increment: goals;
+    padding: 1.8rem 0;
+    border-bottom: 0.5px solid var(--border);
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: 1.2rem;
+    align-items: start;
+  }
+
+  .goals-list li::before {
+    content: counter(goals, decimal-leading-zero);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--accent);
+    padding-top: 0.1rem;
+  }
+
+  .goal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--dark);
+    margin-bottom: 0.3rem;
+  }
+
+  .goal-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    background: var(--accent);
+    color: var(--white);
+    text-align: center;
+    padding: 6rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact::before, .contact::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .contact::before {
+    width: 60vw; height: 60vw;
+    top: -30vw; left: -10vw;
+  }
+
+  .contact::after {
+    width: 40vw; height: 40vw;
+    bottom: -20vw; right: -5vw;
+  }
+
+  .contact .section-label { color: rgba(255,255,255,0.7); justify-content: center; }
+  .contact .section-label::before { background: rgba(255,255,255,0.5); }
+
+  .contact .section-title {
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-sub {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.75);
+    max-width: 480px;
+    margin: 0 auto 3rem;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 2rem;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.25s;
+    background: rgba(255,255,255,0.08);
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-link:hover {
+    background: rgba(255,255,255,0.2);
+    border-color: rgba(255,255,255,0.7);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    color: var(--muted);
+    padding: 2rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+  }
+
+  footer a { color: var(--muted); text-decoration: none; }
+
+  /* ── ANIMATIONS ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 2rem; }
+    .nav-links { gap: 1.5rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 9rem 2rem 3rem; }
+    .hero-right { height: 400px; }
+    .photo-frame { width: 260px; height: 340px; }
+    .photo-placeholder { width: 260px; height: 340px; }
+    section { padding: 5rem 2rem; }
+    .about { grid-template-columns: 1fr; gap: 3rem; }
+    .edu-grid { grid-template-columns: 1fr; }
+    .interests-grid { grid-template-columns: 1fr 1fr; }
+    .goals { grid-template-columns: 1fr; gap: 2rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Rijan <span>Nepal</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#interests">Interests</a></li>
+    <li><a href="#goals">Goals</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Medical Student · Kathmandu, Nepal</div>
+    <h1 class="hero-name">Rijan<br><em>Nepal</em></h1>
+    <p class="hero-title">MBBS Candidate — Institute of Medicine, IOM</p>
+    <p class="hero-desc">A passionate medical student at the prestigious Maharajgunj Medical Campus, committed to advancing healthcare in Nepal through rigorous academic excellence and compassionate patient care.</p>
+    <div class="hero-ctas">
+      <a href="#about" class="btn-primary">Discover More</a>
+      <a href="#contact" class="btn-ghost">Get in Touch</a>
+    </div>
+    <div class="scroll-hint">
+      <span class="scroll-line"></span>
+      Scroll
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="photo-frame">
+      <div class="photo-border"></div>
+      <!-- Replace the src below with a real photo URL -->
+      <div class="photo-placeholder">
+         <svg viewBox="0 0 120 120" fill="none" xmlns="rijan.jpg">
+          <circle cx="60" cy="42" r="26" fill="rgba(255,255,255,0.4)"/>
+          <path d="M10 110 C10 80 30 68 60 68 C90 68 110 80 110 110" fill="rgba(255,255,255,0.4)"/>
+        </svg> 
+        <img src="rijan.jpg" alt="rijan" class="hero-photo">
+        <span>Rijan Nepal</span>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <span class="badge-num">IOM</span>
+      <span class="badge-label">Maharajgunj<br>Medical Campus</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="fade-in">
+    <div class="section-label">Who I Am</div>
+    <h2 class="section-title">Driven by Purpose,<br>Guided by Science</h2>
+
+    <div class="about-stats">
+      <div class="stat-box">
+        <span class="stat-num">4.0</span>
+        <span class="stat-label">SEE GPA</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">3.90</span>
+        <span class="stat-label">+2 GPA</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">MBBS</span>
+        <span class="stat-label">Current Program</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">IOM</span>
+        <span class="stat-label">Tribhuvan University</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-text fade-in">
+    <p>I am Rijan Nepal, an MBBS student at the Institute of Medicine (IOM), Maharajgunj Medical Campus — one of Nepal's most prestigious medical institutions affiliated with Tribhuvan University. My journey into medicine has been defined by consistent academic excellence and an unwavering commitment to learning.</p>
+    <p>My academic journey began at <strong>Oxford Practical English School, Sallaghari</strong>, where I completed my SEE examinations with a perfect <strong>4.0 GPA</strong>, demonstrating early on that academic rigor and discipline were central to my character.</p>
+    <p>I furthered my +2 education at <strong>Capital College and Research Center, Balkumari</strong>, completing the Science (+2) stream with a remarkable <strong>3.90 GPA</strong> — a testament to my dedication to the biomedical sciences that now form the foundation of my medical education.</p>
+    <p>Today, I channel that same discipline into my MBBS studies, aspiring to become a physician who not only treats illness but transforms the healthcare landscape of Nepal.</p>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="education" id="education">
+  <div class="section-label fade-in">Academic Journey</div>
+  <h2 class="section-title fade-in">Education &amp; Credentials</h2>
+
+  <div class="edu-grid">
+    <!-- Card 1 -->
+    <div class="edu-card fade-in">
+      <span class="edu-year">2019 — 2020</span>
+      <span class="edu-level">SEE</span>
+      <div class="edu-institution">Oxford Practical English School</div>
+      <div class="edu-program">Sallaghari, Bhaktapur · Secondary Education Examination</div>
+      <div class="edu-gpa">
+        <span class="gpa-num">4.0</span>
+        <span class="gpa-label">GPA / Perfect Score</span>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="edu-card fade-in">
+      <span class="edu-year">2020 — 2022</span>
+      <span class="edu-level">+2 Science</span>
+      <div class="edu-institution">Capital College &amp; Research Center</div>
+      <div class="edu-program">Balkumari, Lalitpur · Higher Secondary · Biology Stream</div>
+      <div class="edu-gpa">
+        <span class="gpa-num">3.90</span>
+        <span class="gpa-label">GPA</span>
+      </div>
+    </div>
+
+    <!-- Card 3 — Current -->
+    <div class="edu-card current fade-in">
+      <div class="edu-current-badge"></div>
+      <span class="edu-year">2023 — Present</span>
+      <span class="edu-level">MBBS</span>
+      <div class="edu-institution">Institute of Medicine (IOM)</div>
+      <div class="edu-program">Maharajgunj Medical Campus · Tribhuvan University · Bachelor of Medicine &amp; Surgery</div>
+      <div class="edu-gpa">
+        <span class="gpa-num" style="font-size:1.1rem; color: var(--gold);">Currently Pursuing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERESTS -->
+<section class="interests" id="interests">
+  <div class="section-label fade-in">Fields of Passion</div>
+  <h2 class="section-title fade-in">Medical Interests &amp;<br>Areas of Focus</h2>
+
+  <div class="interests-grid">
+    <div class="interest-item fade-in">
+      <span class="interest-icon">🫀</span>
+      <div class="interest-name">Clinical Medicine</div>
+      <div class="interest-desc">Patient-centered diagnosis and evidence-based treatment approaches</div>
+    </div>
+    <div class="interest-item fade-in">
+      <span class="interest-icon">🔬</span>
+      <div class="interest-name">Medical Research</div>
+      <div class="interest-desc">Translational research bridging laboratory science and clinical practice</div>
+    </div>
+    <div class="interest-item fade-in">
+      <span class="interest-icon">🧬</span>
+      <div class="interest-name">Biomedical Sciences</div>
+      <div class="interest-desc">Physiology, anatomy and pathological mechanisms of disease</div>
+    </div>
+    <div class="interest-item fade-in">
+      <span class="interest-icon">🌏</span>
+      <div class="interest-name">Community Health</div>
+      <div class="interest-desc">Public health initiatives and healthcare access in rural Nepal</div>
+    </div>
+  </div>
+</section>
+
+<!-- GOALS -->
+<section class="goals" id="goals">
+  <div class="fade-in">
+    <div class="section-label">Looking Ahead</div>
+    <h2 class="section-title">Ambitions &amp; Future Goals</h2>
+    <p style="color: var(--muted); margin-top:1rem; font-size: 0.95rem; line-height: 1.75;">A clear vision shapes a meaningful career in medicine. These are the milestones I am working toward.</p>
+  </div>
+
+  <ol class="goals-list fade-in">
+    <li>
+      <div>
+        <div class="goal-title">Complete MBBS with Distinction</div>
+        <div class="goal-desc">Achieve academic excellence throughout the MBBS program at IOM, building a strong clinical foundation.</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="goal-title">Pursue Medical Specialization</div>
+        <div class="goal-desc">Specialize in a field that allows maximum positive impact — possibly internal medicine, surgery, or public health.</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="goal-title">Contribute to Nepali Healthcare</div>
+        <div class="goal-desc">Return expertise to Nepal and serve underserved communities, improving access to quality healthcare.</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <div class="goal-title">International Medical Training</div>
+        <div class="goal-desc">Gain exposure through residency or fellowship programs abroad, bringing global medical knowledge home.</div>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-label fade-in">Get in Touch</div>
+  <h2 class="section-title fade-in">Let's Connect</h2>
+  <p class="contact-sub fade-in">Whether you're a fellow medical student, a mentor, or someone passionate about healthcare in Nepal — I'd love to hear from you.</p>
+  <div class="contact-links fade-in">
+    <a href="mailto:rijannepal@gmail.com" class="contact-link">✉ Email Me</a>
+    <a href="#" class="contact-link">in LinkedIn</a>
+    <a href="#" class="contact-link">📍 Kathmandu, Nepal</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2024 Rijan Nepal — MBBS Candidate, IOM Maharajgunj</span>
+  <span>Institute of Medicine · Tribhuvan University · Nepal</span>
+</footer>
+
+<script>
+  // Intersection Observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach((el, i) => {
+    el.style.transitionDelay = `${(i % 4) * 0.08}s`;
+    observer.observe(el);
+  });
+
+  // Trigger hero elements immediately
+  setTimeout(() => {
+    document.querySelectorAll('.hero .fade-in').forEach(el => el.classList.add('visible'));
+  }, 100);
+</script>
+</body>
+</html>
